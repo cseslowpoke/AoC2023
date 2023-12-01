@@ -10,7 +10,7 @@ template<class T> void org(T l, T r) { while (l != r) cerr << *l++ << ' '; cerr 
 #define orange(args...) (cerr << "#> [" + string(#args) + ") = ", org(args))
 #else            // ======== OnlineJudge ========
 #pragma GCC optimize("O3,unroll-loops")
-#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+// #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 #define debug(...) ((void)0)
 #define orange(...) ((void)0)
 #endif
@@ -51,7 +51,7 @@ signed main() {
   };
 
   while(cin >> s) {
-    for(int i = 0; i < s.size(); i++) { 
+    for(int i = 0; i < (int)s.size(); i++) { 
       if(check(s, i)) {
         sum += check(s, i) * 10;
         break;
