@@ -29,42 +29,37 @@ template<class T> void org(T l, T r) { while (l != r) cerr << *l++ << ' '; cerr 
 template<class T> using _pq = priority_queue<T, vector<T>, greater<T>>;
 const int mod = 1e9 + 7, N = 1 << 20, INF = 0x3f3f3f3f;
 
-// string s[] = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-int sz[] = {3, 3, 5, 4, 4, 3, 5, 5, 4};
-
-
+void solve() {
+  map<char,int> mp;
+  mp['r'] = 0;
+  mp['g'] = 1;
+  mp['b'] = 2;
+  string tmp;
+  int sz[3] = {12, 13, 14};
+  int sum = 0;
+  for(int i = 1; cin >> tmp >> tmp; i++) {
+    string s, t;
+    getline(cin, s);
+    stringstream ss(s);
+    bool flag = true;
+    while(ss >> s >> t) {
+      if(sz[mp[t[0]]] < stoi(s)) {
+        flag = false;
+        break;
+      }
+    }
+    if(flag) {
+      sum += i;
+    }
+  }
+  cout << sum << '\n';
+}
 
 signed main() {
   IO;
-  string s;
-  long long sum = 0;
-  auto check = [](string &s, int p) {
-    for (int i = 0; i < 9; i++) {
-      if(s.substr(p, sz[i]) == ::s[i]) return i + 1;
-    }
-    for(int i = 0; i < 9; i++) {
-      string tmp; 
-      tmp += char(i + 1 + '0');
-      if(s.substr(p, 1) == tmp) return i + 1;
-    }
-    return 0;
-  };
-
-  while(cin >> s) {
-    for(int i = 0; i < (int)s.size(); i++) { 
-      if(check(s, i)) {
-        sum += check(s, i) * 10;
-        break;
-      }
-    }
-    for(int i = s.size() - 1; i >= 0; i--) { 
-      if(check(s, i)) {
-        sum += check(s, i);
-        break;
-      }
-    }
-    // sum += (*find_if(all(s), [](char &c) { return '0' <= c && c <= '9';}) - '0') * 10 +
-    //        (*find_if(rall(s), [](char &c) { return '0' <= c && c <= '9';}) - '0');
+  int t = 1;
+  //cin >> t;
+  while(t--) {
+    solve();
   }
-  cout << sum << '\n';
 }
