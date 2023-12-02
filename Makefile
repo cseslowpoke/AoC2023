@@ -24,7 +24,7 @@ $(foreach day,$(DAYS),$(eval $(call compile_and_run_day,$(day))))
 # Clean Target
 clean:
 	@rm -f $(foreach day,$(DAYS),Day$(day)p1.out Day$(day)p2.out)
-	@rm -rf $(foreach day,$(DAYS),Day$(day)p1.dSYM Day$(day)p2.dSYM)
+	@rm -rf $(foreach day,$(DAYS),Day$(day)p1.out.dSYM Day$(day)p2.out.dSYM)
 
 # Phony Targets
 .PHONY: clean $(foreach day,$(DAYS),day$(day)p1 day$(day)p2)
