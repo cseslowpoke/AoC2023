@@ -29,8 +29,8 @@ template<class T> void org(T l, T r) { while (l != r) cerr << *l++ << ' '; cerr 
 template<class T> using _pq = priority_queue<T, vector<T>, greater<T>>;
 const int mod = 1e9 + 7, N = 1 << 20, INF = 0x3f3f3f3f;
 
-// string s[] = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-int sz[] = {3, 3, 5, 4, 4, 3, 5, 5, 4};
+string s[] = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+// int sz[] = {3, 3, 5, 4, 4, 3, 5, 5, 4};
 
 
 
@@ -40,7 +40,7 @@ signed main() {
   long long sum = 0;
   auto check = [](string &s, int p) {
     for (int i = 0; i < 9; i++) {
-      if(s.substr(p, sz[i]) == ::s[i]) return i + 1;
+      if(s.substr(p, sz[i]) == ::s) return i + 1;
     }
     for(int i = 0; i < 9; i++) {
       string tmp; 

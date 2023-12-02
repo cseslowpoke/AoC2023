@@ -41,7 +41,7 @@ void solve() {
     string s, t;
     getline(cin, s);
     stringstream ss(s);
-    bool flag = true;
+    // bool flag = true;
     int sz[3] = {};
     while(ss >> s >> t) {
       sz[mp[t[0]]] = max(sz[mp[t[0]]], stoi(s));
