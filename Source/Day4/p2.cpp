@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+#pragma GCC optimize("Ofast")
+using namespace std;
+
+#ifdef LOCAL    // =========== Local ===========
+void dbg() { cerr << '\n'; }
+template<class T, class ...U> void dbg(T a, U ...b) { cerr << a << ' ', dbg(b...); } 
+template<class T> void org(T l, T r) { while (l != r) cerr << *l++ << ' '; cerr << '\n'; } 
+#define debug(args...) (dbg("#> (" + string(#args) + ") = (", args, ")"))
+#define orange(args...) (cerr << "#> [" + string(#args) + ") = ", org(args))
+#else            // ======== OnlineJudge ========
+#pragma GCC optimize("O3,unroll-loops")
+#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+#define debug(...) ((void)0)
+#define orange(...) ((void)0)
+#endif
+#define all(x) x.begin(), x.end()
+#define rall(x) x.rbegin(), x.rend()
+#define ll long long int
+#define mp make_pair
+#define pb push_back
+#define eb emplace_back
+#define pii pair <int, int>
+#define X first
+#define Y second
+#define rep(i,a) for (ll i=0;i<a;i++)
+#define IO ios::sync_with_stdio(false); cin.tie(0)
+
+template<class T> using _pq = priority_queue<T, vector<T>, greater<T>>;
+const int mod = 1e9 + 7, N = 1 << 20, INF = 0x3f3f3f3f;
+
+void solve() {
+  string tmp;
+  ll sum = 0;
+  int card[300] = {};
+  for(int i = 1; i < 300; i++) card[i] = 1;
+  for(int i = 1; cin >> tmp >> tmp; i++) {
+    set<int> st;
+    for(int i = 0; i < 10; i++) {
+      int x; cin >> x;
+      st.insert(x);
+    }
+    int n = 0;
+    cin >> tmp;
+    for(int i = 0; i < 25; i++) {
+      int x; cin >> x;
+      if(st.count(x)) {
+        n++;
+      }
+    }
+    for(int j = i + 1; j <= i + n; j++) {
+      card[j] += card[i];
+    }
+    sum += card[i];
+  }
+  cout << sum << '\n';
+}
+
+signed main() {
+  IO;
+  int t = 1;
+  //cin >> t;
+  while(t--) {
+    solve();
+  }
+}
