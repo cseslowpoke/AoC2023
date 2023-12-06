@@ -1,8 +1,22 @@
 # Makefile for Aoc2023 project using C++
 
 # Compiler settings
-CXX = g++-13
-CXXFLAGS = -Wall -g -DLOCAL
+# Detect the operating system
+ifeq ($(OS),Windows_NT)
+    detected_OS := Windows
+else
+    detected_OS := $(shell uname -s)
+endif
+
+# Set the CXX variable according to the operating system
+ifeq ($(detected_OS),Windows)
+    CXX := g++
+else ifeq ($(detected_OS),Darwin)  # Darwin is the name for macOS in uname
+    CXX := g++-13
+else
+    CXX := g++
+endif
+CXXFLAGS = -Wall -g -DLOCAL -std=c++20
 
 # Function to compile and run a day's problem with input redirection
 define compile_and_run_day
